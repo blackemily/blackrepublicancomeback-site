@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>School 2 – History, Economics & Civic Truth · Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="School 2 – History, Economics & Civic Truth at the Black Republican Comeback Academy. Learn Reconstruction, Black Republicans, economics, and civic structure with a clear, independent lens." />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.13);
+      --accent-strong: #fedb5f;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --success: #4ade80;
+      --link: #7ea7e0;
+      --badge-bg: rgba(126, 167, 224, 0.12);
+      --badge-text: #bfdbfe;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 10%, #fedb5f, #4b5563 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 20%;
+      border-radius: 50%;
+      border: 2px solid rgba(15, 23, 42, 0.6);
+    }
+
+    .brand-icon-arrow {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 2px solid rgba(15, 23, 42, 0.85);
+      border-top-color: #fef9c3;
+      border-right-color: #fef08a;
+      transform: rotate(45deg) translate(1px, -1px);
+    }
+
+    .brand-title {
+      font-size: 0.98rem;
+      font-weight: 650;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill-tag {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.2));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      font-weight: 550;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #fef9c3, #facc15 45%, #a16207 100%);
+      color: #111827;
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.35);
+      border-color: #facc15;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(250, 204, 21, 0.45);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.7);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.7));
+      text-decoration: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      border-radius: 24px;
+      padding: 22px 18px 20px;
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.16), transparent 55%),
+        radial-gradient(circle at top right, rgba(126, 167, 224, 0.18), transparent 65%),
+        linear-gradient(135deg, #020617, #020617 30%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+      gap: 18px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-label-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.18);
+    }
+
+    .hero-title {
+      font-size: clamp(1.6rem, 3.2vw, 1.9rem);
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #fef9c3, #facc15, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0 0 14px;
+      max-width: 32rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side {
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.14), transparent 60%),
+        linear-gradient(145deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 14px 14px 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-side-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--text-main);
+    }
+
+    .hero-side-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: grid;
+      gap: 5px;
+    }
+
+    .hero-side-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-side-bullet {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.85);
+      margin-top: 4px;
+    }
+
+    .hero-ribbon {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--success);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-ribbon-badge {
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      font-size: 0.7rem;
+      color: #bbf7d0;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .pill-small {
+      display: inline-flex;
+      padding: 2px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      font-size: 0.72rem;
+      color: var(--badge-text);
+      margin-bottom: 4px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(150deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.82));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: grid;
+      gap: 3px;
+      font-size: 0.78rem;
+    }
+
+    .card-list li::before {
+      content: "• ";
+      color: var(--accent-strong);
+    }
+
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .level-card {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(150deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.82));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .level-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--badge-text);
+      margin-bottom: 3px;
+    }
+
+    .level-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .level-body {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .callout {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: radial-gradient(circle at top left, rgba(250, 204, 21, 0.12), transparent 60%);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .callout-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 28px;
+      padding-top: 14px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-3,
+      .levels-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .grid-3,
+      .levels-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding: 20px 14px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <div class="brand-icon-arrow"></div>
+        </div>
+        <div>
+          <div class="brand-title">Black Republican Comeback Academy</div>
+          <div class="brand-sub">School 2 · History, Economics &amp; Civic Truth</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <span class="pill-tag">Reconstruction roots • Modern clarity</span>
+        <a href="/index.html#schools" class="btn btn-ghost">Back to all schools</a>
+        <a href="#tutor" class="btn btn-primary">Open the Tutor (placeholder)</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <div class="hero-label">
+            <span class="hero-label-dot"></span>
+            <span>School 2 · History, Economics &amp; Civic Truth</span>
+          </div>
+          <h1 class="hero-title">
+            Understand the story and the <span class="highlight">incentives</span> beneath it.
+          </h1>
+          <p class="hero-sub">
+            This school walks you through the parts of history and economics most people never really learn: the
+            Reconstruction era and Black Republicans, how parties and narratives shifted, how incentives actually work,
+            and what the Constitution and government are supposed to be doing.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#tutor" class="btn btn-primary">
+              Use the History &amp; Econ Tutor
+            </a>
+            <a href="/index.html" class="btn btn-ghost">Return to the Academy home</a>
+          </div>
+          <div class="hero-note">
+            You don’t have to agree with every conclusion to benefit. The goal here is context and clarity, not
+            obedience.
+          </div>
+        </div>
+        <aside class="hero-side">
+          <div class="hero-side-title">What this school helps you do</div>
+          <p>
+            Instead of memorizing disconnected dates and slogans, you’ll see how events, incentives, and institutions
+            fit together — especially around Reconstruction and its aftermath.
+          </p>
+          <ul class="hero-side-list">
+            <li class="hero-side-item">
+              <div class="hero-side-bullet"></div>
+              <div>Get a clear, narrative overview of Reconstruction and the Black Republican era.</div>
+            </li>
+            <li class="hero-side-item">
+              <div class="hero-side-bullet"></div>
+              <div>Understand basic economics and why incentives quietly drive so many outcomes.</div>
+            </li>
+            <li class="hero-side-item">
+              <div class="hero-side-bullet"></div>
+              <div>Learn how the U.S. government is structured so you’re harder to mislead.</div>
+            </li>
+          </ul>
+          <div class="hero-ribbon">
+            <span class="hero-ribbon-badge">Built for readers &amp; non-readers</span>
+            <span>Ask questions, get explanations, work at your own pace.</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Three Pillars -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">The three pillars of this school</div>
+          <div class="section-sub">
+            Everything here lives under three big headings: history with context, economics with real-world examples,
+            and civic structure without the fog.
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="pill-small">Pillar 1</div>
+            <div class="card-title">History with Reconstruction at the center</div>
+            <p>
+              Instead of racing from the Founding to the present in one blurry line, this pillar slows down around
+              Reconstruction and the wave of Black Republicans who stepped into public life.
+            </p>
+            <ul class="card-list">
+              <li>What Reconstruction actually was and why it mattered.</li>
+              <li>How Black Republicans gained office, then were slowly pushed out.</li>
+              <li>How narratives about parties and race shifted over time.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill-small">Pillar 2</div>
+            <div class="card-title">Economics &amp; incentives in plain language</div>
+            <p>
+              No graphs required. You’ll learn to see the incentives under policies, programs, and predictions — and
+              how those incentives shape behavior more than speeches do.
+            </p>
+            <ul class="card-list">
+              <li>Basic ideas: supply &amp; demand, inflation, trade, taxes.</li>
+              <li>Why “free” things usually have a hidden price.</li>
+              <li>How economic rules show up in everyday life decisions.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill-small">Pillar 3</div>
+            <div class="card-title">Civic truth: how the system is supposed to work</div>
+            <p>
+              You’ll get a clear map of the Constitution, the branches of government, and what each part is supposed to
+              be doing — before we talk about what’s actually happening now.
+            </p>
+            <ul class="card-list">
+              <li>Constitution basics: structures, limits, and rights.</li>
+              <li>Congress, the Presidency, and the courts in simple terms.</li>
+              <li>Why checks and balances exist — and what it looks like when they weaken.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Levels / Paths -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">How your learning path works</div>
+          <div class="section-sub">
+            You can treat this school like a casual tutoring stop or like a structured course. These three “levels”
+            describe how deep you want to go.
+          </div>
+        </div>
+        <div class="levels-grid">
+          <article class="level-card">
+            <div class="level-label">Level 1 · Free foundations</div>
+            <div class="level-title">Quick clarity sessions</div>
+            <p class="level-body">
+              Use the tutor for short sessions: “Explain Reconstruction like I’m 15,” “What is inflation?”, “What does
+              the House actually do?” You get clean, simple explanations with room for follow-up questions.
+            </p>
+          </article>
+
+          <article class="level-card">
+            <div class="level-label">Level 2 · Guided path</div>
+            <div class="level-title">Storyline learning</div>
+            <p class="level-body">
+              When you’re ready, you can walk through a more ordered path: start with a timeline of Reconstruction, move
+              into basic economics, then finish with a clear map of civic structure. The tutor can keep track of where
+              you are and what you’ve covered.
+            </p>
+          </article>
+
+          <article class="level-card">
+            <div class="level-label">Level 3 · Deep dives (optional)</div>
+            <div class="level-title">Books, policy debates, and nuance</div>
+            <p class="level-body">
+              For deeper study, you can bring in books, articles, and speeches. The tutor can help you summarize,
+              compare claims, and see how different writers frame the same events and policies.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Using the Tutor -->
+      <section id="tutor" class="section">
+        <div class="section-header">
+          <div class="section-title">Using the History, Economics &amp; Civic Truth tutor</div>
+          <div class="section-sub">
+            This page is the school overview. The actual work happens with the GPT tutor tied to this school.
+            Until that’s live, this section simply explains how it’ll be used.
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="callout">
+            <div class="callout-title">What the tutor will do</div>
+            <p>
+              The tutor is designed to be conversational, patient, and structured. You can ask broad questions or dig
+              into details. You can also say what level you’re at (“I never paid attention in history class,” “I know
+              some econ but not much”) and it will adjust.
+            </p>
+            <ul class="card-list">
+              <li>Explain events, terms, and ideas in clear, plain language.</li>
+              <li>Help you build timelines and cause–effect chains.</li>
+              <li>Compare different interpretations of the same event or policy.</li>
+              <li>Relate history and economics back to incentives and human behavior.</li>
+            </ul>
+          </article>
+          <article class="callout">
+            <div class="callout-title">How you’ll access it</div>
+            <p>
+              Once the tutor is live, this page will link directly to it. For now, you can think of this section as a
+              placeholder: the space is reserved, and the description is ready. When the GPT is created, the “Open the
+              Tutor” buttons on this page will point straight to it.
+            </p>
+            <p>
+              You’ll never need to make an account <em>for this school page</em> itself. If the tutor lives inside a
+              platform (like ChatGPT or Substack-linked tools), you’ll just follow that platform’s normal sign-in flow.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Connection to the rest of the Academy -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">How this school fits the bigger comeback</div>
+          <div class="section-sub">
+            History, economics, and civic truth make more sense when they’re surrounded by good thinking, real skills,
+            and some stability.
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-title">Paired with Thinking &amp; Writing (School 1)</div>
+            <p>
+              As you learn this material, School 1 can help you write about it: essays, letters, posts, and arguments
+              that actually make sense. The goal isn’t just knowing facts; it’s being able to express them.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-title">Paired with the rest of your life</div>
+            <p>
+              Economics helps with money decisions. Civic understanding helps with voting and policy. History helps you
+              see patterns. None of that lives in a vacuum — it all plugs into work, family, and the stories you tell
+              about where you are and where you’re going.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        School 2 · History, Economics &amp; Civic Truth — part of the Black Republican Comeback Academy.
+      </div>
+      <div class="footer-links">
+        <a href="/index.html">Academy home</a>
+        <a href="/index.html#schools">All schools</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
