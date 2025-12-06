@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Safety, Test Prep & Professional Readiness – Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Safety basics, test prep strategy, and professional readiness skills for students, job seekers, and adults who want to show up prepared." />
+  <style>
+    :root {
+      --bg-main:#050814; --bg-alt:#0b1020; --card-bg:#111827;
+      --accent:#38bdf8; --accent-strong:#7dd3fc; --accent-soft:rgba(56,189,248,0.12);
+      --text-main:#e5e7eb; --text-muted:#9ca3af; --border-subtle:#1f2937;
+      --radius-lg:18px; --radius-xl:22px; --radius-pill:999px;
+      --max-width:960px; --shadow-soft:0 24px 60px rgba(15,23,42,0.8);
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; min-height:100vh;
+      font-family:system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+      color:var(--text-main);
+    }
+    a{color:#7ea7e0; text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .page{max-width:var(--max-width); margin:0 auto; padding:24px 16px 60px;}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:24px; gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:10px;}
+    .brand-icon{
+      width:34px; height:34px; border-radius:14px;
+      background:radial-gradient(circle at 30% 10%, #38bdf8, #4b5563 60%, #020617 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 24px rgba(0,0,0,0.6); position:relative; overflow:hidden;
+    }
+    .brand-icon::before{
+      content:""; position:absolute; inset:22%;
+      border-radius:8px; border:2px solid rgba(15,23,42,0.7);
+    }
+    .brand-icon-shield{
+      width:14px; height:14px;
+      border-radius:4px;
+      border:2px solid rgba(15,23,42,0.9);
+      border-top-color:#e0f2fe;
+      border-right-color:#7dd3fc;
+    }
+    .brand-text-main{font-size:.98rem; font-weight:650;}
+    .brand-text-sub{font-size:.74rem; color:var(--text-muted);}
+    .btn{
+      padding:7px 13px; border-radius:var(--radius-pill); font-size:.78rem;
+      display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+      border:1px solid transparent; transition:.15s ease;
+    }
+    .btn-primary{
+      background:radial-gradient(circle at top left,#e0f2fe,#38bdf8 45%,#0369a1 100%);
+      color:#020617; border-color:#38bdf8;
+      box-shadow:0 12px 30px rgba(56,189,248,0.35);
+    }
+    .btn-primary:hover{transform:translateY(-1px);}
+    .btn-ghost{
+      background:rgba(15,23,42,0.4); border-color:rgba(148,163,184,0.4);
+      color:var(--text-muted);
+    }
+    /* Hero */
+    .hero{
+      border-radius:24px; padding:22px 18px;
+      background:
+        radial-gradient(circle at top left,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at top right,rgba(96,165,250,0.16),transparent 60%),
+        linear-gradient(135deg,#020617,#020617 40%,#020617 100%);
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:var(--shadow-soft); margin-bottom:26px;
+    }
+    .hero-pill{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 10px; border-radius:var(--radius-pill);
+      background:var(--accent-soft); font-size:.78rem; color:var(--accent-strong);
+      margin-bottom:8px;
+    }
+    .hero-dot{
+      width:7px; height:7px; border-radius:999px;
+      background:#38bdf8; box-shadow:0 0 0 6px rgba(56,189,248,0.2);
+    }
+    .hero-title{font-size:2rem; margin:0 0 10px;}
+    .hero-title span{
+      background:linear-gradient(120deg,#e0f2fe,#38bdf8,#a5b4fc);
+      -webkit-background-clip:text; color:transparent;
+    }
+    .hero-sub{color:var(--text-muted); max-width:40rem;}
+    .hero-cta-row{
+      margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+    .hero-note{margin-top:6px; font-size:.78rem; color:var(--text-muted);}
+    /* Sections */
+    .section{margin-bottom:26px;}
+    .section-title{font-size:1.06rem; font-weight:600;}
+    .section-subtitle{font-size:.82rem; color:var(--text-muted); margin-bottom:8px;}
+    .grid{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+    }
+    .card{
+      background:#111827; border:1px solid var(--border-subtle);
+      border-radius:var(--radius-lg); padding:12px; font-size:.82rem;
+    }
+    .card-title{font-size:.9rem; font-weight:600; margin-bottom:4px;}
+    .card-tag{
+      display:inline-flex; padding:2px 8px; border-radius:var(--radius-pill);
+      border:1px solid rgba(148,163,184,0.6); font-size:.7rem;
+      color:#bfdbfe; margin-bottom:4px;
+    }
+    .card ul{padding-left:16px; margin:4px 0 0;}
+    .card li::marker{color:var(--accent-strong);}
+    /* Tracks */
+    .tracks-grid{
+      display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:12px;
+    }
+    .tracks-main{
+      background:#020617; border-radius:var(--radius-xl);
+      border:1px solid var(--border-subtle); padding:14px; font-size:.82rem;
+      background:
+        radial-gradient(circle at top left,rgba(56,189,248,0.12),transparent 60%),
+        linear-gradient(145deg,#020617,#020617 70%);
+    }
+    .tracks-title{font-size:.94rem; font-weight:600; margin-bottom:4px;}
+    .tracks-main ul{padding-left:16px; margin:6px 0 0;}
+    .tracks-label{font-weight:600; color:var(--accent-strong);}
+    .tracks-side{
+      background:#0b1120; border-radius:var(--radius-lg);
+      border:1px solid var(--border-subtle); padding:12px; font-size:.8rem;
+      color:var(--text-muted);
+    }
+    footer{
+      border-top:1px solid var(--border-subtle); padding-top:14px;
+      font-size:.76rem; color:var(--text-muted);
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    }
+    @media (max-width:800px){
+      .tracks-grid,.grid{grid-template-columns:1fr;}
+      header{flex-direction:column; align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon"><div class="brand-icon-shield"></div></div>
+        <div>
+          <div class="brand-text-main">Safety, Test Prep &amp; Professional Readiness</div>
+          <div class="brand-text-sub">Black Republican Comeback Academy</div>
+        </div>
+      </div>
+      <a href="/index.html#schools" class="btn btn-ghost">← Back to Academy</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-pill">
+        <span class="hero-dot"></span>
+        <span>Safety • Exams • Work Readiness • Real-World Expectations</span>
+      </div>
+      <h1 class="hero-title">
+        Show up <span>prepared</span> — on tests, at work, and in life.
+      </h1>
+      <p class="hero-sub">
+        This school is for people who are tired of walking into big moments under-prepared: exams, job interviews, first
+        days on the job, or high-stakes conversations. Here, the focus is on safety, smart test prep, and professional
+        behavior that earns trust.
+      </p>
+      <div class="hero-cta-row">
+        <a href="https://YOUR-SAFETY-TESTPREP-GPT-LINK" class="btn btn-primary">🛡 Start the Readiness Tutor</a>
+        <a href="#what-youll-learn" class="btn btn-ghost">See what you'll learn</a>
+      </div>
+      <div class="hero-note">
+        No fake “you’ve got this” speeches. Just clear expectations, practice, and feedback so you actually do.
+      </div>
+    </section>
+
+    <section id="what-youll-learn" class="section">
+      <div class="section-title">What You’ll Learn</div>
+      <div class="section-subtitle">Three pillars: staying safe, passing tests, and behaving like a professional adult.</div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-tag">Safety & Everyday Risk</div>
+          <div class="card-title">Basic safety that adults should know</div>
+          <ul>
+            <li>Situational awareness and avoiding obvious trouble</li>
+            <li>Personal, workplace, and digital safety basics</li>
+            <li>How to think about risk without panic or denial</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Test Taking & Strategy</div>
+          <div class="card-title">How to stop being surprised by exams</div>
+          <ul>
+            <li>Breaking down big tests into topics and question types</li>
+            <li>Timing, guessing, and managing nerves under pressure</li>
+            <li>Practice routines for SAT/ACT/LSAT/GRE-style tests</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Professional Readiness</div>
+          <div class="card-title">How serious adults show up</div>
+          <ul>
+            <li>Basic expectations at work: communication, follow-through</li>
+            <li>How to send emails, ask questions, and own mistakes</li>
+            <li>Dealing with feedback, conflict, and authority</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Interviews & First Impressions</div>
+          <div class="card-title">Turning nervous energy into signal</div>
+          <ul>
+            <li>Preparing stories that demonstrate character and skill</li>
+            <li>Answering common interview questions honestly and clearly</li>
+            <li>Follow-up, thank-you notes, and what to do if you blow it</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Study Systems & Habits</div>
+          <div class="card-title">From “cram” to consistent progress</div>
+          <ul>
+            <li>Building small, repeatable study blocks around your life</li>
+            <li>Turning notes, quizzes, and mistakes into learning fuel</li>
+            <li>Using calendars, checklists, and accountability well</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Civic & Workplace Responsibility</div>
+          <div class="card-title">Being the person people can count on</div>
+          <ul>
+            <li>Respecting time, tools, property, and shared spaces</li>
+            <li>Basic legal and policy awareness at school and work</li>
+            <li>How reliability becomes your quiet superpower</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">How the learning works in this school</div>
+      <div class="section-subtitle">
+        You’re not expected to “just know” how to do all this. The tutor walks you through real scenarios and drills.
+      </div>
+
+      <div class="tracks-grid">
+        <div class="tracks-main">
+          <div class="tracks-title">Core learning tracks</div>
+          <ul>
+            <li>
+              <span class="tracks-label">Track 1 – Safety & Risk Basics.</span>
+              Everyday safety scenarios, checklists, and “what would you do?” drills that teach calm, realistic responses.
+            </li>
+            <li>
+              <span class="tracks-label">Track 2 – Exam & Test Strategy.</span>
+              Build a test map, design practice blocks, and rehearse how you’ll handle timing, hard questions, and fatigue.
+            </li>
+            <li>
+              <span class="tracks-label">Track 3 – Professional Readiness.</span>
+              Practice emails, scripts for asking for help, and responses to common workplace situations — all reviewed and refined.
+            </li>
+            <li>
+              <span class="tracks-label">Track 4 – Interviews & First Impressions.</span>
+              Draft and polish your answers, questions, and follow-up messages until they sound like a thoughtful, serious adult.
+            </li>
+          </ul>
+        </div>
+        <aside class="tracks-side">
+          <div class="tracks-title" style="font-size:.86rem;">How this connects to the bigger comeback</div>
+          <p>
+            A real comeback isn’t just about ideas and opinions. It’s about a generation of people who know how to show
+            up on time, prepared, safe, and serious — in school, at work, and in public life.
+          </p>
+          <p>
+            This school exists so that no one has to guess what “ready” looks like. The expectations are made clear,
+            and you get as many reps as you need until they feel natural.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div>Safety, Test Prep &amp; Professional Readiness School — Part of the Black Republican Comeback Academy</div>
+      <a href="/index.html#schools">Return to Academy</a>
+    </footer>
+  </div>
+</body>
+</html>
