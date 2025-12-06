@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>School 1 – Thinking, Writing & Logic • Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="School 1 of the Black Republican Comeback Academy: Thinking, Writing & Logic. Learn writing, reasoning, and philosophy in clear, simple, powerful ways." />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.13);
+      --accent-strong: #fedb5f;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --link: #7ea7e0;
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius: 20px;
+      --radius-pill: 999px;
+      --max-width: 980px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* Header */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 10%, #fedb5f, #4b5563 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      border: 2px solid rgba(15, 23, 42, 0.7);
+    }
+
+    .brand-icon-arrow {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 2px solid rgba(15, 23, 42, 0.85);
+      border-top-color: #fef9c3;
+      border-right-color: #fef08a;
+      transform: rotate(45deg) translate(2px, -2px);
+    }
+
+    .brand-text-main {
+      font-size: 1.02rem;
+      font-weight: 650;
+    }
+
+    .brand-text-sub {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 550;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.15s ease;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .btn:hover {
+      color: var(--text-main);
+      border-color: rgba(248,250,252,0.8);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #fef9c3, #facc15 40%, #a16207);
+      color: #111827;
+      border-color: #facc15;
+      box-shadow: 0 12px 30px rgba(250,204,21,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-strong);
+      color: #000;
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 55%),
+        radial-gradient(circle at top right, rgba(126, 167, 224, 0.18), transparent 65%),
+        linear-gradient(135deg, #020617, #020617 30%, #020617 100%);
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,0.45);
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      background: rgba(126,167,224,0.12);
+      color: #bfdbfe;
+      margin-bottom: 12px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #fef9c3, #facc15, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 16px;
+    }
+
+    /* Section Header */
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Skill Cards */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: linear-gradient(150deg, rgba(15,23,42,0.98), rgba(15,23,42,0.85));
+      border: 1px solid rgba(148,163,184,0.6);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .card-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      text-decoration: none;
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(250,204,21,0.4);
+    }
+
+    .card-link:hover {
+      background: var(--accent-strong);
+    }
+
+    /* How It Works */
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .how-card {
+      background: rgba(15,23,42,0.8);
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 16px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* Certificates */
+
+    .cert-box {
+      background: linear-gradient(150deg, #020617, #020617);
+      border: 1px solid rgba(148,163,184,0.6);
+      border-radius: var(--radius);
+      padding: 16px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid rgba(31,41,55,0.9);
+      padding-top: 16px;
+      margin-top: 32px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <div class="brand-icon-arrow"></div>
+        </div>
+        <div>
+          <div class="brand-text-main">Black Republican Comeback Academy</div>
+          <div class="brand-text-sub">School 1 • Thinking, Writing & Logic</div>
+        </div>
+      </div>
+      <div>
+        <a href="/index.html" class="btn">← Back to Academy</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Foundation School • Brain Skills
+      </div>
+      <h1 class="hero-title">
+        School 1: <span>Thinking, Writing & Logic</span>
+      </h1>
+      <p class="hero-sub">
+        This is the foundation of the entire comeback. Clear writing, clear thinking, and clear reasoning. If your mind
+        is sharp, the rest of your life becomes easier to build.
+      </p>
+      <a href="#skills" class="btn btn-primary">Explore School 1</a>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="section-title">Core Skill Areas</div>
+      <div class="section-subtitle">Three pillars: writing, reasoning, and philosophy explained simply.</div>
+
+      <div class="card-grid">
+
+        <!-- Writing -->
+        <div class="card">
+          <div class="card-title">Writing Instruction</div>
+          <div class="card-body">
+            Learn to write clearly: sentences, paragraphs, essays, emails, arguments, and explanations. Everything is
+            broken down into simple steps you can practice immediately.
+          </div>
+          <a href="/gpt-writing-lab.html" class="card-link">Open Writing Tutor</a>
+        </div>
+
+        <!-- Logic -->
+        <div class="card">
+          <div class="card-title">Logic & Critical Thinking</div>
+          <div class="card-body">
+            Learn how arguments work, how fallacies mislead, and how to evaluate claims without getting pushed around by
+            emotion or confusion.
+          </div>
+          <a href="/gpt-logic-tutor.html" class="card-link">Open Logic Tutor</a>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="card">
+          <div class="card-title">Philosophy (Simple & Practical)</div>
+          <div class="card-body">
+            Freedom, responsibility, meaning, justice — explained in plain English. Not abstract for the sake of being
+            abstract, but philosophy for real life.
+          </div>
+          <a href="/gpt-philosophy-guide.html" class="card-link">Open Philosophy Guide</a>
+        </div>
+
+        <!-- Reading & Analysis -->
+        <div class="card">
+          <div class="card-title">Reading Comprehension</div>
+          <div class="card-body">
+            Learn how to understand, analyze, and summarize what you read. Improve focus, memory, and your ability to
+            explain ideas back in your own words.
+          </div>
+          <a href="/gpt-reading-coach.html" class="card-link">Open Reading Coach</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+      <div class="section-title">How This School Works</div>
+      <div class="section-subtitle">Pick a tutor, learn at your own pace, practice whenever you want.</div>
+
+      <div class="how-grid">
+        <div class="how-card">
+          <p>
+            School 1 is designed like a private tutor for your mind. Each GPT in this school helps you learn, revise,
+            practice, and grow. You can start anywhere — writing, logic, reading, or philosophy — and switch between
+            them anytime.
+          </p>
+          <p>
+            The more you practice explaining things in your own words, the quicker your thinking sharpens. You’ll notice
+            the difference in how you speak, write, decide, and evaluate information.
+          </p>
+        </div>
+        <div class="how-card">
+          <p>
+            No schedules, no deadlines, and no grades. Just clarity, practice, and progress. When you’re ready, move on
+            to School 2 (History, Economics & Civic Truth) or jump ahead to whichever part of your comeback needs work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section">
+      <div class="section-title">Certificates</div>
+      <div class="section-subtitle">Print a reminder of the work you’ve put in.</div>
+
+      <div class="cert-box">
+        <p>
+          After you complete a defined path (Writing, Logic, Philosophy, or Reading), you can print a mini-certificate
+          for each area. If you complete all major areas of School 1, you’ll earn the
+          <strong>School 1 Certificate of Clarity & Reasoning.</strong>
+        </p>
+        <p>
+          None of this is accredited, but the point isn’t a credential — the point is that your thinking is sharper than
+          it was when you started.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>Black Republican Comeback Academy • School 1</div>
+      <div><a href="/index.html" class="btn">← Back to Academy</a></div>
+    </footer>
+
+  </div>
+</body>
+</html>
