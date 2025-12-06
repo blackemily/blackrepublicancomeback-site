@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Skills, Coding & Online Income – Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn web development, digital marketing, SEO, content creation, AI automation, and online income skills in the Digital Skills, Coding & Online Income School of the Black Republican Comeback Academy." />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.13);
+      --accent-strong: #fedb5f;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --link: #7ea7e0;
+      --badge-bg: rgba(126, 167, 224, 0.12);
+      --badge-text: #bfdbfe;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 10%, #22c55e, #4b5563 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border-radius: 8px;
+      border: 2px solid rgba(15, 23, 42, 0.7);
+    }
+
+    .brand-icon-chip {
+      width: 14px;
+      height: 10px;
+      border-radius: 4px;
+      border: 2px solid rgba(15, 23, 42, 0.9);
+      border-top-color: #bbf7d0;
+      border-right-color: #4ade80;
+    }
+
+    .brand-text-main {
+      font-size: 0.98rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .pill-tag {
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.2));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      font-weight: 550;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #bbf7d0, #22c55e 45%, #15803d 100%);
+      color: #020617;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+      border-color: #22c55e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 38px rgba(34, 197, 94, 0.45);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.7);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.7));
+      text-decoration: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      border-radius: 24px;
+      padding: 22px 18px 20px;
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 55%),
+        radial-gradient(circle at top right, rgba(126, 167, 224, 0.18), transparent 65%),
+        linear-gradient(135deg, #020617, #020617 30%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 20px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem, 3.6vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin: 0 0 8px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #bbf7d0, #22c55e, #4ade80);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side {
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.14), transparent 60%),
+        linear-gradient(145deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-side-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hero-side-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 6px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-step {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-ribbon {
+      margin-top: 2px;
+      font-size: 0.72rem;
+      color: var(--badge-text);
+    }
+
+    /* Section layout */
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    /* Cards */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.8));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .card-tag {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+      color: var(--badge-text);
+      margin-bottom: 4px;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .list li::before {
+      content: "• ";
+      color: #4ade80;
+    }
+
+    /* Modules */
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .modules-main {
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 12px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.1), transparent 60%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.86));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .modules-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .modules-body {
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .modules-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .modules-item-label {
+      font-weight: 600;
+      color: #4ade80;
+    }
+
+    .modules-item-desc {
+      color: var(--text-muted);
+    }
+
+    .modules-side {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.88));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 28px;
+      padding-top: 12px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-left {
+      max-width: 360px;
+    }
+
+    .footer-tagline {
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .footer-pill {
+      padding: 2px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid,
+      .modules-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        padding: 18px 12px 40px;
+      }
+
+      .hero {
+        padding: 18px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <div class="brand-icon-chip"></div>
+        </div>
+        <div>
+          <div class="brand-text-main">Digital Skills, Coding &amp; Online Income</div>
+          <div class="brand-text-sub">Black Republican Comeback Academy</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <span class="pill-tag">Skill-based • Outcome-driven • Real-world use</span>
+        <a href="/index.html#schools" class="btn btn-ghost">⬅ Back to Academy Home</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            <span>Web dev • SEO • Marketing • AI • E‑com • Offers</span>
+          </div>
+          <h1 class="hero-title">
+            Digital skills that can actually
+            <span class="highlight">make you useful</span>.
+          </h1>
+          <p class="hero-sub">
+            This school is for people who want concrete skills they can use to earn, build, or support a business —
+            without pretending everyone is going to become a millionaire influencer by Tuesday.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#modules" class="btn btn-primary">See the core tracks</a>
+            <a href="#what" class="btn btn-ghost">What you’ll actually learn</a>
+          </div>
+          <div class="hero-note">
+            You don’t need to master everything. You just need enough real skill in a few areas that you can help
+            someone solve a problem — and get paid for it.
+          </div>
+        </div>
+        <aside class="hero-side" id="what">
+          <div>
+            <div class="hero-side-title">How this school works</div>
+            <div class="hero-side-sub">
+              Think of this as a digital workshop. You bring your goals and your current level; the tutor helps you
+              break down skills into steps and practice them on realistic examples.
+            </div>
+          </div>
+          <ul class="hero-step-list">
+            <li class="hero-step">
+              <div class="hero-step-num">1</div>
+              <div>Pick an area: coding, web dev, SEO, content, marketing, AI tools, or simple online offers.</div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">2</div>
+              <div>Ask for beginner-friendly paths, checklists, and small practice projects you can actually complete.</div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">3</div>
+              <div>Use the tutor to refine drafts, troubleshoot, and translate “jargon talk” into normal language.</div>
+            </li>
+          </ul>
+          <div class="hero-ribbon">
+            The goal isn’t hype. The goal is to become truly helpful in the modern economy, one skill at a time.
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">The main skill areas inside this school</div>
+          <div class="section-subtitle">
+            These are the core digital arenas that open doors: from writing pages and emails to building simple sites,
+            understanding SEO, and setting up basic online offers.
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-tag">Coding &amp; Web Development</div>
+            <div class="card-title">Learn how the web is actually built</div>
+            <p>
+              You’ll work through HTML, CSS, and basic JavaScript ideas in plain language, with help applying them to
+              simple pages and practical layouts.
+            </p>
+            <ul class="list">
+              <li>What HTML, CSS, and JS do — and how they fit together.</li>
+              <li>Build simple, clean pages instead of copy-pasting chaos.</li>
+              <li>Understand enough to talk to developers and not be lost.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">SEO, Content &amp; Digital Marketing</div>
+            <div class="card-title">Get found and understood online</div>
+            <p>
+              You’ll learn how search engines, content, and basic funnels work, plus how to write pages and posts that
+              attract the right people instead of everyone.
+            </p>
+            <ul class="list">
+              <li>SEO basics: search intent, keywords, on-page structure.</li>
+              <li>Write content that’s clear, useful, and discoverable.</li>
+              <li>Understand simple funnels: lead, nurture, and offer.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Copywriting &amp; Social Media</div>
+            <div class="card-title">Words that move people to act</div>
+            <p>
+              You’ll practice writing headlines, offers, and short posts that are direct, honest, and focused on real
+              value — not fake urgency and manipulative tricks.
+            </p>
+            <ul class="list">
+              <li>Offer-focused copy instead of empty slogans.</li>
+              <li>Social media posts that point somewhere useful.</li>
+              <li>Emails that respect the reader and still sell.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">AI, Automation &amp; Simple Online Offers</div>
+            <div class="card-title">Use tools instead of being used by them</div>
+            <p>
+              You’ll learn how to use AI and basic automations to save time, not to replace thinking — and how to turn
+              skills into simple offers or micro-services.
+            </p>
+            <ul class="list">
+              <li>Prompt basics and how to structure AI conversations.</li>
+              <li>Simple automations (email, forms, basic workflows).</li>
+              <li>Turn skills into clear “I do this for X people” offers.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="modules" class="section">
+        <div class="section-header">
+          <div class="section-title">Core tracks inside this school</div>
+          <div class="section-subtitle">
+            You don’t have to take everything. Pick one track that lines up with your immediate reality, and work
+            through it with the tutor until you can actually ship something.
+          </div>
+        </div>
+        <div class="modules-grid">
+          <div class="modules-main">
+            <div class="modules-title">Four focused learning tracks</div>
+            <div class="modules-body">
+              Each track is designed to lead to visible output: a page, a sequence, a basic site, or a simple starter
+              offer. The tutor can adapt the pace to where you are now.
+            </div>
+            <ul class="modules-list">
+              <li>
+                <span class="modules-item-label">Track 1 – Web Foundations</span><br />
+                <span class="modules-item-desc">
+                  Learn HTML and CSS by building a handful of simple, clean pages you could proudly show a real person —
+                  not just tutorial exercises.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 2 – SEO &amp; Content Essentials</span><br />
+                <span class="modules-item-desc">
+                  Map a topic, choose search terms, outline pages, and write content designed to attract the right
+                  searchers over time.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 3 – Copy, Email &amp; Social Basics</span><br />
+                <span class="modules-item-desc">
+                  Write a simple offer page, a short email sequence, and a set of social posts that all point in the
+                  same direction.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 4 – AI &amp; Starter Offers</span><br />
+                <span class="modules-item-desc">
+                  Use AI to speed up drafting and planning, then design one realistic micro-offer you could actually
+                  fulfill for a client or employer.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <aside class="modules-side">
+            <div class="modules-title" style="font-size:0.85rem;">How this fits the larger comeback</div>
+            <p>
+              A comeback in thinking is powerful. A comeback in earning power is too. This school exists so that more
+              people can participate in the digital economy as creators, helpers, and builders — not just as users and
+              targets.
+            </p>
+            <p>
+              You might use these skills to support a local business, to become the “tech person” at your job, or to
+              launch something small of your own. What matters is that you stop feeling locked out of how modern work
+              actually happens.
+            </p>
+            <p>
+              The point is not hype. The point is competence.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-tagline">Digital Skills, Coding &amp; Online Income School</div>
+        <div>
+          Part of the Black Republican Comeback Academy — built for people who want skills they can quietly use without
+          asking anyone’s permission.
+        </div>
+      </div>
+      <div class="footer-links">
+        <span class="footer-pill">Skill-based • Outcome-driven</span>
+        <a href="/index.html#schools">Academy Home</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
