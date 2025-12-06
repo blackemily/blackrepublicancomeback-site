@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Black Republican Comeback Academy – a free, open-to-everyone school of clarity, opportunity, independent thinking, confidence, history, and financial stability." />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #facc15; /* gold */
+      --accent-soft: rgba(250, 204, 21, 0.13);
+      --accent-strong: #fedb5f;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --danger: #f97373;
+      --success: #4ade80;
+      --link: #7ea7e0;
+      --badge-bg: rgba(126, 167, 224, 0.12);
+      --badge-text: #bfdbfe;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 30% 10%, #fedb5f, #4b5563 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      border: 2px solid rgba(15, 23, 42, 0.6);
+    }
+
+    .brand-icon-arrow {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 2px solid rgba(15, 23, 42, 0.85);
+      border-top-color: #fef9c3;
+      border-right-color: #fef08a;
+      transform: rotate(45deg) translate(2px, -2px);
+    }
+
+    .brand-text-main {
+      font-size: 1.05rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-tag {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.2));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      font-weight: 550;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #fef9c3, #facc15 45%, #a16207 100%);
+      color: #111827;
+      box-shadow: 0 16px 40px rgba(250, 204, 21, 0.35);
+      border-color: #facc15;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px rgba(250, 204, 21, 0.45);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.7);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.7));
+      text-decoration: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      border-radius: 26px;
+      padding: 26px 22px 26px;
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 55%),
+        radial-gradient(circle at top right, rgba(126, 167, 224, 0.18), transparent 65%),
+        linear-gradient(135deg, #020617, #020617 30%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 24px;
+    }
+
+    .hero-main-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-main-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.15);
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin: 0 0 10px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #fef9c3, #facc15, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin: 0 0 18px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-small-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .hero-side {
+      border-radius: 20px;
+      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.14), transparent 60%),
+        linear-gradient(145deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-side-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hero-side-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .hero-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-step-body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-ribbon {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--success);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-ribbon-badge {
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      font-size: 0.7rem;
+      color: #bbf7d0;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    /* Why Academy */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .why-card {
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .why-card-label {
+      font-size: 0.75rem;
+      color: var(--accent-strong);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .why-card-body {
+      color: var(--text-muted);
+    }
+
+    /* Six Schools */
+
+    .schools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .school-card {
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 12px;
+      background: radial-gradient(circle at top left, rgba(250, 204, 21, 0.07), transparent 60%),
+        linear-gradient(160deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.85));
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .school-pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .school-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .school-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .school-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .school-meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 8px;
+      display: grid;
+      gap: 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .school-meta-item {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .school-meta-icon {
+      margin-top: 2px;
+      width: 9px;
+      height: 9px;
+      border-radius: 3px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .school-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .school-level {
+      font-size: 0.75rem;
+      color: var(--badge-text);
+    }
+
+    .school-link {
+      font-size: 0.78rem;
+      font-weight: 550;
+      color: #020617;
+      background: var(--accent);
+      border-radius: var(--radius-pill);
+      padding: 5px 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.4);
+    }
+
+    .school-link:hover {
+      text-decoration: none;
+      background: var(--accent-strong);
+    }
+
+    .school-link-arrow {
+      font-size: 0.8rem;
+    }
+
+    /* Tuition */
+
+    .tuition-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 14px;
+    }
+
+    .tuition-main {
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 55%),
+        linear-gradient(135deg, #020617, #020617);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+    }
+
+    .tuition-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tuition-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .tuition-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+    }
+
+    .tuition-label {
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .tuition-value {
+      font-weight: 600;
+      color: var(--success);
+    }
+
+    .tuition-row-alt .tuition-value {
+      color: var(--danger);
+    }
+
+    .tuition-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .tuition-tag {
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(249, 115, 129, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.6);
+      color: #fecaca;
+    }
+
+    .tuition-side {
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      background: linear-gradient(150deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.85));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tuition-side-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-strong);
+      margin-bottom: 4px;
+    }
+
+    /* Certificates */
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 14px;
+    }
+
+    .cert-main {
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      background: linear-gradient(150deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.82rem;
+    }
+
+    .cert-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cert-body {
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .cert-item::before {
+      content: "• ";
+      color: var(--accent-strong);
+    }
+
+    .cert-side {
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      background: linear-gradient(150deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.85));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 32px;
+      padding-top: 16px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-left {
+      max-width: 380px;
+    }
+
+    .footer-tagline {
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .footer-pill {
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.72rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tuition-wrap,
+      .cert-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .why-grid,
+      .schools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .why-grid,
+      .schools-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding: 20px 16px;
+      }
+
+      .page {
+        padding: 20px 14px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <div class="brand-icon-arrow"></div>
+        </div>
+        <div>
+          <div class="brand-text-main">Black Republican Comeback Academy</div>
+          <div class="brand-text-sub">Clarity. Confidence. Independence.</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <span class="pill-tag">Open to everyone • Built for a comeback</span>
+        <a href="#schools" class="btn btn-ghost">View the Six Schools</a>
+        <a href="#tuition" class="btn btn-primary">Start Free</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <div class="hero-main-eyebrow">
+            <span class="hero-main-eyebrow-dot"></span>
+            <span>America needs a comeback. So do we.</span>
+          </div>
+          <h1 class="hero-title">
+            Your mind is the first
+            <span class="highlight">comeback</span>.
+          </h1>
+          <p class="hero-sub">
+            The Black Republican Comeback Academy is a free, open-to-everyone school that helps you think clearly,
+            build opportunity, and live with confidence and independence. No lectures. Just skills, clarity, and a
+            little humor.
+          </p>
+          <div class="hero-cta-row">
+            <a href="/clarity-school.html" class="btn btn-primary">
+              Begin With Clarity (Free)
+            </a>
+            <a href="#tuition" class="btn btn-ghost">
+              See Tuition &amp; the “Pain Relief” Joke
+            </a>
+          </div>
+          <div class="hero-small-note">
+            Start in the Clarity School, then work your way through opportunity, independent thinking, history,
+            confidence, and financial stability.
+          </div>
+          <div class="hero-meta-row">
+            <div class="hero-meta-item">
+              <span class="hero-meta-dot"></span>
+              <span>All six schools are 100% self-paced.</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-dot"></span>
+              <span>Open to everyone — no political gate at the door.</span>
+            </div>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <div>
+            <div class="hero-side-title">How the Academy Works</div>
+            <div class="hero-side-sub">
+              Think of this as an orientation card. You don’t need a login, a tuition form, or a party card. Just a
+              desire for clarity.
+            </div>
+          </div>
+          <ol class="hero-step-list">
+            <li class="hero-step">
+              <div class="hero-step-num">1</div>
+              <div class="hero-step-body">
+                Start in the <strong>Clarity School</strong> to clear the fog, spot manipulation, and learn to think
+                calmly and independently.
+              </div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">2</div>
+              <div class="hero-step-body">
+                Move into <strong>Opportunity, Independent Thinking, History, Confidence,</strong> and
+                <strong>Financial Stability</strong> at your own pace.
+              </div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">3</div>
+              <div class="hero-step-body">
+                When you’ve completed the path, print your <strong>Comeback Certificate</strong> as a reminder of how
+                far your mind has traveled.
+              </div>
+            </li>
+          </ol>
+          <div class="hero-ribbon">
+            <span class="hero-ribbon-badge">Tuition: $0</span>
+            <span>Funded by people tired of watching minds get wasted.</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Why Section -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Why a Comeback Academy?</div>
+          <div class="section-subtitle">
+            Because most “education” trains people to conform, not to think. This Academy is built around the skills a
+            real comeback needs: clarity, opportunity, independence, confidence, truth, and stability.
+          </div>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card-label">Clarity over confusion</div>
+            <div class="why-card-body">
+              We start by clearing the mental fog — media noise, emotional manipulation, and constant outrage — so you
+              can see what’s actually in front of you.
+            </div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-label">Opportunity over dependency</div>
+            <div class="why-card-body">
+              A comeback doesn’t wait on handouts. You’ll learn practical skills for getting hired, advancing, and
+              creating value in the real world.
+            </div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-label">Independence over programming</div>
+            <div class="why-card-body">
+              From politics to advertising, everyone wants your mind on autopilot. We teach you to think your way out
+              of other people’s scripts.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Six Schools -->
+      <section id="schools" class="section">
+        <div class="section-header">
+          <div class="section-title">The Six Schools of the Comeback</div>
+          <div class="section-subtitle">
+            Each “school” is a focused tutor that walks you through one pillar of the comeback. Start with Clarity,
+            then go wherever your life needs the most help.
+          </div>
+        </div>
+        <div class="schools-grid">
+          <!-- Clarity School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 1</span>
+            </div>
+            <div class="school-name">Clarity School</div>
+            <div class="school-tagline">Think clearly again. Cut through fog and manipulation.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn to separate emotion from logic and see what’s really being said.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Understand how media, messaging, and outrage cycles shape perception.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Practice calm, step-by-step thinking — the first move in any comeback.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Start here • Beginner friendly</div>
+              <a href="/clarity-school.html" class="school-link">
+                Enter Clarity School
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Opportunity School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 2</span>
+            </div>
+            <div class="school-name">Opportunity School</div>
+            <div class="school-tagline">Jobs, advancement, and real-world doors opening.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Build a clear, honest resume that actually sounds like you.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Practice interviews, workplace language, and promotion strategies.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn how to be the person people want to hire and keep.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Career • Advancement</div>
+              <a href="/opportunity-school.html" class="school-link">
+                Enter Opportunity School
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Independent Thinking School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 3</span>
+            </div>
+            <div class="school-name">Independent Thinking School</div>
+            <div class="school-tagline">Upgrade your mind. Stop being easily steered.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn logical reasoning, basic argument structure, and fallacies.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Break down political and cultural claims without losing your cool.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Practice disagreeing without becoming a clone of either side.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Mindset • Logic</div>
+              <a href="/independent-thinking-school.html" class="school-link">
+                Enter Independent Thinking
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- History & Truth School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 4</span>
+            </div>
+            <div class="school-name">History &amp; Truth School</div>
+            <div class="school-tagline">Understand the story you were never fully told.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Explore American history with context, not just slogans and slogans-about-slogans.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn how narratives around parties and race evolved over time.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>See how past comebacks happened — and what they required.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Context • Civic Literacy</div>
+              <a href="/history-truth-school.html" class="school-link">
+                Enter History &amp; Truth
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Confidence & Leadership School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 5</span>
+            </div>
+            <div class="school-name">Confidence &amp; Leadership School</div>
+            <div class="school-tagline">Find your voice. Lead in your lane.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Practice speaking up, not just thinking strong thoughts silently.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn leadership basics: presence, responsibility, decision-making.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Build the courage to stand where you believe, even when the crowd leans the other way.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Voice • Presence</div>
+              <a href="/confidence-leadership-school.html" class="school-link">
+                Enter Confidence School
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Financial & Stability School -->
+          <article class="school-card">
+            <div class="school-pill">
+              <span class="school-pill-dot"></span>
+              <span>School 6</span>
+            </div>
+            <div class="school-name">Financial &amp; Stability School</div>
+            <div class="school-tagline">Money, stability, and real independence.</div>
+            <ul class="school-meta-list">
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Learn basic budgeting, credit, and savings without jargon.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>See how debt, chaos, and constant crisis keep people controllable.</span>
+              </li>
+              <li class="school-meta-item">
+                <span class="school-meta-icon"></span>
+                <span>Build a simple, realistic plan to stabilize your life and stack options.</span>
+              </li>
+            </ul>
+            <div class="school-footer-row">
+              <div class="school-level">Stability • Independence</div>
+              <a href="/financial-stability-school.html" class="school-link">
+                Enter Financial School
+                <span class="school-link-arrow">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tuition / Humor -->
+      <section id="tuition" class="section">
+        <div class="section-header">
+          <div class="section-title">Tuition &amp; the “Pain Relief” Joke</div>
+          <div class="section-subtitle">
+            Education used to cost a fortune. This Academy doesn’t — but it does come with one small, optional joke
+            built in.
+          </div>
+        </div>
+        <div class="tuition-wrap">
+          <div class="tuition-main">
+            <div class="tuition-title">What it Costs</div>
+            <div class="tuition-body">
+              The comeback is not for sale. Access to all six schools is free. No paywall, no hidden upsell, no
+              political entry fee. You show up with your brain, we show up with the tools.
+            </div>
+            <div class="tuition-row">
+              <span class="tuition-label">Standard Tuition</span>
+              <span class="tuition-value">$0 — all schools included</span>
+            </div>
+            <div class="tuition-row tuition-row-alt">
+              <span class="tuition-label">Optional “Democrat Pain Relief” Donation</span>
+              <span class="tuition-value">$100 (satire)</span>
+            </div>
+            <div class="tuition-note">
+              If you’re planning to vote Democrat, you are still 100% welcome here. If you’d like to tip $100 for my
+              emotional pain, that’s your call. Either way, the content is yours.
+            </div>
+            <div style="margin-top: 8px;">
+              <span class="tuition-tag">Everyone gets full access • It’s a joke, not a gate</span>
+            </div>
+          </div>
+          <aside class="tuition-side">
+            <div class="tuition-side-title">No Political Gatekeeping</div>
+            <p>
+              The Academy has a point of view, but it does not have a bouncer at the door. You don’t have to agree
+              with everything here to benefit from the clarity, opportunity, and stability it teaches.
+            </p>
+            <p>
+              The only “admission requirement” is simple: you’re willing to think. If you can do that, you’re in.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Certificates -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Certificates &amp; Completion</div>
+          <div class="section-subtitle">
+            When you finish the path, you don’t just walk away smarter. You walk away with a symbol — a visible reminder
+            that you chose a comeback over drift.
+          </div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-main">
+            <div class="cert-title">Certificate of Comeback Completion</div>
+            <div class="cert-body">
+              Complete the six schools — Clarity, Opportunity, Independent Thinking, History &amp; Truth, Confidence,
+              and Financial Stability — and you’ll be able to print a
+              <strong>Certificate of Comeback Completion</strong> with your name on it.
+            </div>
+            <ul class="cert-list">
+              <li class="cert-item">Shows you invested in your own clarity and growth.</li>
+              <li class="cert-item">Reminds you that your mind made a deliberate turn.</li>
+              <li class="cert-item">Can sit on your wall, your desk, or the inside of a cabinet only you open.</li>
+            </ul>
+          </div>
+          <aside class="cert-side">
+            <div class="tuition-side-title">Mini-Certificates</div>
+            <p>
+              You can also earn mini-certificates for each school individually:
+            </p>
+            <ul class="cert-list">
+              <li class="cert-item">Clarity Certificate</li>
+              <li class="cert-item">Opportunity Certificate</li>
+              <li class="cert-item">Independent Thinking Certificate</li>
+              <li class="cert-item">History &amp; Truth Certificate</li>
+              <li class="cert-item">Confidence Certificate</li>
+              <li class="cert-item">Financial Stability Certificate</li>
+            </ul>
+            <p style="margin-top: 6px;">
+              None of them are “officially accredited.” But the most important accreditation is whether your actual life
+              looks and feels different.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-tagline">Black Republican Comeback Academy</div>
+        <div>
+          Built for anyone who’s ready to think clearly, live independently, and help America make a comeback — one
+          mind at a time.
+        </div>
+      </div>
+      <div class="footer-links">
+        <span class="footer-pill">All are welcome • Clarity is universal</span>
+        <a href="#schools">Schools</a>
+        <a href="#tuition">Tuition</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
