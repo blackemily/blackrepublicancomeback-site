@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Science & Analytical Reasoning – Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conceptual science and analytical reasoning for real people: physics, biology, chemistry, scientific method, and data skills without the math panic." />
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.13);
+      --accent-strong: #fedb5f;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --link: #7ea7e0;
+      --badge-bg: rgba(126, 167, 224, 0.12);
+      --badge-text: #bfdbfe;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 10%, #fedb5f, #4b5563 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border-radius: 50%;
+      border: 2px solid rgba(15, 23, 42, 0.7);
+    }
+
+    .brand-icon-orbit {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(15, 23, 42, 0.9);
+      border-top-color: #fef9c3;
+      border-right-color: #fef08a;
+      transform: rotate(35deg);
+    }
+
+    .brand-text-main {
+      font-size: 0.98rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .pill-tag {
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.2));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      font-weight: 550;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #fef9c3, #facc15 45%, #a16207 100%);
+      color: #111827;
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.35);
+      border-color: #facc15;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 38px rgba(250, 204, 21, 0.45);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.7);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.7));
+      text-decoration: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      border-radius: 24px;
+      padding: 22px 18px 20px;
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 55%),
+        radial-gradient(circle at top right, rgba(126, 167, 224, 0.18), transparent 65%),
+        linear-gradient(135deg, #020617, #020617 30%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 20px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.15);
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem, 3.6vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin: 0 0 8px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #fef9c3, #facc15, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side {
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.14), transparent 60%),
+        linear-gradient(145deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-side-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hero-side-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 6px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-step {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-ribbon {
+      margin-top: 2px;
+      font-size: 0.72rem;
+      color: var(--badge-text);
+    }
+
+    /* Section layout */
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 460px;
+    }
+
+    /* Cards */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.8));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .card-tag {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+      color: var(--badge-text);
+      margin-bottom: 4px;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .list li::before {
+      content: "• ";
+      color: var(--accent-strong);
+    }
+
+    /* Modules */
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .modules-main {
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 12px;
+      background: radial-gradient(circle at top left, rgba(250, 204, 21, 0.08), transparent 60%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.86));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .modules-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .modules-body {
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .modules-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .modules-item-label {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .modules-item-desc {
+      color: var(--text-muted);
+    }
+
+    .modules-side {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.88));
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 28px;
+      padding-top: 12px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-left {
+      max-width: 360px;
+    }
+
+    .footer-tagline {
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .footer-pill {
+      padding: 2px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid,
+      .modules-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        padding: 18px 12px 40px;
+      }
+
+      .hero {
+        padding: 18px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <div class="brand-icon-orbit"></div>
+        </div>
+        <div>
+          <div class="brand-text-main">Science &amp; Analytical Reasoning School</div>
+          <div class="brand-text-sub">Black Republican Comeback Academy</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <span class="pill-tag">Concept-first • Evidence-based • No math panic</span>
+        <a href="/index.html#schools" class="btn btn-ghost">⬅ Back to Academy Home</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            <span>Physics • Biology • Chemistry • Data • Scientific Method</span>
+          </div>
+          <h1 class="hero-title">
+            Science that finally
+            <span class="highlight">makes sense</span>.
+          </h1>
+          <p class="hero-sub">
+            This school is for people who were never taught science clearly the first time. We focus on concepts,
+            cause-and-effect, and how to think like someone who respects evidence — without turning everything into a
+            calculus exam.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#modules" class="btn btn-primary">See the core modules</a>
+            <a href="#how" class="btn btn-ghost">How this school will teach you</a>
+          </div>
+          <div class="hero-note">
+            You don’t have to be “good at math” to understand how the world works. You just need patient explanations
+            and a chance to ask real questions.
+          </div>
+        </div>
+        <aside class="hero-side" id="how">
+          <div>
+            <div class="hero-side-title">How this school works</div>
+            <div class="hero-side-sub">
+              Think of this as a science and reasoning tutor that doesn’t roll its eyes. You bring curiosity; it brings
+              explanations and practice.
+            </div>
+          </div>
+          <ul class="hero-step-list">
+            <li class="hero-step">
+              <div class="hero-step-num">1</div>
+              <div>Pick a topic: physics, biology, chemistry, scientific method, or data/spreadsheets.</div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">2</div>
+              <div>Ask for plain-language explanations, comparisons, or walk-throughs of real-world scenarios.</div>
+            </li>
+            <li class="hero-step">
+              <div class="hero-step-num">3</div>
+              <div>Practice explaining concepts back in your own words until they click.</div>
+            </li>
+          </ul>
+          <div class="hero-ribbon">
+            You’re not here to impress a teacher. You’re here to actually understand what’s true and how we know.
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">What you’ll learn here</div>
+          <div class="section-subtitle">
+            We focus on big ideas, not memorized trivia. The point is to understand how the world works well enough to
+            reason about claims, news, and everyday problems.
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-tag">Physics &amp; the physical world</div>
+            <div class="card-title">How things move, push, pull, and break</div>
+            <p>
+              You’ll learn core ideas like forces, energy, motion, and fields — the invisible rules that explain why
+              cars move, planes fly, and bridges don’t (usually) collapse.
+            </p>
+            <ul class="list">
+              <li>Forces, motion, and energy — in normal language.</li>
+              <li>Gravity, orbits, and why things fall the way they do.</li>
+              <li>Electricity and magnetism as everyday phenomena, not just equations.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Biology &amp; living systems</div>
+            <div class="card-title">How life is organized and stays alive</div>
+            <p>
+              You’ll explore cells, organs, ecosystems, and the logic of how living things maintain themselves, adapt,
+              and sometimes fail.
+            </p>
+            <ul class="list">
+              <li>Cells, tissues, organs, and systems — as a connected story.</li>
+              <li>How information and energy move through living things.</li>
+              <li>Immune systems, health, and what “normal” looks like for the body.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Chemistry &amp; matter</div>
+            <div class="card-title">What everything is made of and how it changes</div>
+            <p>
+              You’ll learn about atoms, molecules, reactions, and states of matter — how substances combine, separate,
+              and transform.
+            </p>
+            <ul class="list">
+              <li>Atoms, bonds, and why some combinations are stable and others explode.</li>
+              <li>States of matter, solutions, and everyday reactions (like rust or cooking).</li>
+              <li>How chemical ideas apply to food, fuel, and materials you use every day.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Scientific method &amp; data</div>
+            <div class="card-title">How evidence actually works</div>
+            <p>
+              You’ll practice thinking like someone who runs experiments: testable ideas, evidence, error, and honest
+              conclusions — plus basic data and spreadsheet work.
+            </p>
+            <ul class="list">
+              <li>Hypotheses, experiments, variables, and controls.</li>
+              <li>Correlation vs. causation, and why that matters so much.</li>
+              <li>Basic spreadsheets: sorting, simple formulas, and reading charts.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="modules" class="section">
+        <div class="section-header">
+          <div class="section-title">Core modules inside this school</div>
+          <div class="section-subtitle">
+            These are the main “tracks” you can work through. You can do them in order, or jump straight to the one
+            that solves a problem you have right now.
+          </div>
+        </div>
+        <div class="modules-grid">
+          <div class="modules-main">
+            <div class="modules-title">Four main learning tracks</div>
+            <div class="modules-body">
+              Each track can be taken as slowly or quickly as you like. The goal is not to impress anyone — it’s to
+              understand and be able to explain what you’ve learned.
+            </div>
+            <ul class="modules-list">
+              <li>
+                <span class="modules-item-label">Track 1 – Conceptual Physics</span><br />
+                <span class="modules-item-desc">
+                  Motion, forces, energy, and fields, explained with real-world examples (cars, sports, buildings) and
+                  simple diagrams.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 2 – Conceptual Biology</span><br />
+                <span class="modules-item-desc">
+                  Cells, systems, health, and ecology, with an emphasis on how your own body and environment actually
+                  work.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 3 – Conceptual Chemistry</span><br />
+                <span class="modules-item-desc">
+                  Matter, molecules, reactions, and everyday chemistry in cooking, cleaning, fuel, and materials.
+                </span>
+              </li>
+              <li>
+                <span class="modules-item-label">Track 4 – Scientific Thinking &amp; Data</span><br />
+                <span class="modules-item-desc">
+                  How to form testable ideas, read science news with skepticism, and use basic spreadsheets to explore
+                  data and patterns.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <aside class="modules-side">
+            <div class="modules-title" style="font-size:0.85rem;">How this connects to the bigger comeback</div>
+            <p>
+              A serious comeback for a country requires more than slogans. It needs people who can understand evidence,
+              see through bad data presentations, and resist being pushed around by scare stories dressed up as
+              “science.”
+            </p>
+            <p>
+              This school is here so that ordinary people — not just specialists — can look at claims about health,
+              energy, climate, technology, or risk and say: “I actually understand enough to ask better questions.”
+            </p>
+            <p>
+              You don’t have to become a scientist. But you do have to stop being easy to fool.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-tagline">Science &amp; Analytical Reasoning School</div>
+        <div>
+          Part of the Black Republican Comeback Academy — built for people who want to respect evidence without handing
+          their minds over to anyone else.
+        </div>
+      </div>
+      <div class="footer-links">
+        <span class="footer-pill">Concept-first • Evidence-aware</span>
+        <a href="/index.html#schools">Academy Home</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
