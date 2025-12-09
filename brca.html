@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Black Republican Comeback Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0c0f16;
+      --accent: #f5b316;
+      --accent-soft: rgba(245, 179, 22, 0.15);
+      --text: #f5f7ff;
+      --muted: #99a2c0;
+      --card: #101320;
+      --border: #20263b;
+      --danger: #e45858;
+      --success: #28b487;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #15192b 0, #05060a 55%, #020308 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* NAV */
+    .nav {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(90deg, rgba(5,6,10,0.96), rgba(5,6,10,0.96));
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .brand-text span:last-child {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: rgba(245,179,22,0.4);
+      background: rgba(245,179,22,0.08);
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #1a1202;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 0 25px rgba(245,179,22,0.35);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(245,179,22,0.4);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1.2rem, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span.accent {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge {
+      font-size: 0.74rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #1a1202;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(245,179,22,0.4);
+    }
+
+    .btn-ghost {
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(245,179,22,0.08);
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .hero-note span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-panel {
+      background: radial-gradient(circle at top, #181c33, #090b12 55%);
+      border-radius: 1.4rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-panel-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-panel-sub {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-grid-item {
+      padding: 0.7rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top, rgba(245,179,22,0.06), rgba(0,0,0,0.65));
+    }
+
+    .hero-grid-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-grid-main {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-grid-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-panel-ribbon {
+      position: absolute;
+      top: 1.2rem;
+      right: -3rem;
+      transform: rotate(35deg);
+      background: linear-gradient(90deg, var(--accent), #ffdd7a);
+      color: #1a1202;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.3rem 3.5rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      padding: 1.5rem 0 0.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .section-link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* TRACKS GRID */
+    .tracks-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 800px) {
+      .tracks-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.1rem;
+      border: 1px solid var(--border);
+      padding: 1.1rem;
+      box-shadow: 0 14px 25px rgba(0,0,0,0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .card-meta span.highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-chip {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.16s ease;
+    }
+
+    .btn-chip.primary {
+      border-color: rgba(245,179,22,0.6);
+      color: var(--accent);
+    }
+
+    .btn-chip:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(245,179,22,0.08);
+    }
+
+    .card-ribbon {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.7rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(40,180,135,0.18);
+      color: var(--success);
+      border: 1px solid rgba(40,180,135,0.5);
+    }
+
+    .card-ribbon.alt {
+      background: rgba(244,162,97,0.14);
+      color: var(--accent);
+      border-color: rgba(245,179,22,0.5);
+    }
+
+    /* TWO COLUMN SECTION */
+    .two-col {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 900px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+    }
+
+    .pill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill-list li {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 1.4rem 0 1.6rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="brand">
+          <div class="brand-mark">BR</div>
+          <div class="brand-text">
+            <span>Comeback Academy</span>
+            <span>Black Republican Comeback</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="#tracks">Academy Tracks</a>
+          <a href="#system-factory">AI System Factory</a>
+          <a href="#books">Books & Library</a>
+          <a href="#candidates">For Candidates</a>
+          <button class="nav-cta">Enter the Academy</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Black Republican Comeback Academy</span>
+            </div>
+            <h1 class="hero-title">
+              Train a <span class="accent">new generation</span> of Black Republican leaders,
+              strategists, and creators.
+            </h1>
+            <p class="hero-subtitle">
+              A digital school for students, parents, and candidates who want real history,
+              real economics, and real strategy — not the same old victim script.
+            </p>
+
+            <div class="hero-badges">
+              <div class="hero-badge">6 Core Learning Tracks</div>
+              <div class="hero-badge">Book-Driven GPT Tutors</div>
+              <div class="hero-badge">Campaign Policy Lab</div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary">Start With the Core Tracks</button>
+              <button class="btn-ghost">Watch the 3-minute overview</button>
+            </div>
+
+            <p class="hero-note">
+              Inside: <span>thinking, writing, history, economics, science, trades, digital skills</span> —
+              plus an integrated AI System Factory to build your own projects.
+            </p>
+          </div>
+
+          <!-- SIDE PANEL: QUICK SNAPSHOT -->
+          <aside class="hero-panel">
+            <div class="hero-panel-ribbon">Founding Cohort</div>
+            <p class="hero-panel-tag">Phase One • Core Academy + AI Lab</p>
+            <h2 class="hero-panel-title">What you get on day one</h2>
+            <p class="hero-panel-sub">
+              Start with the 6 core tracks, guided GPT tutors, and a private project lab powered
+              by AI System Factory.
+            </p>
+            <div class="hero-grid">
+              <div class="hero-grid-item">
+                <div class="hero-grid-label">Core Tracks</div>
+                <div class="hero-grid-main">6 Pillars of Training</div>
+                <div class="hero-grid-desc">From history & civics to digital skills & trades.</div>
+              </div>
+              <div class="hero-grid-item">
+                <div class="hero-grid-label">AI Tutors</div>
+                <div class="hero-grid-main">Book-Powered GPTs</div>
+                <div class="hero-grid-desc">Teach from full texts, not soundbites.</div>
+              </div>
+              <div class="hero-grid-item">
+                <div class="hero-grid-label">Policy Lab</div>
+                <div class="hero-grid-main">Candidate Strategy GPT</div>
+                <div class="hero-grid-desc">Ideas that help communities, not hurt them.</div>
+              </div>
+              <div class="hero-grid-item">
+                <div class="hero-grid-label">Build Lab</div>
+                <div class="hero-grid-main">AI System Factory</div>
+                <div class="hero-grid-desc">Design your own funnels, offers, and outreach.</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TRACKS -->
+      <section id="tracks" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">The 6 Core Academy Tracks</h2>
+              <p class="section-subtitle">
+                Each track has its own GPT tutor, syllabus, and library — so you can learn from real
+                primary sources and structured lessons, not random clips.
+              </p>
+            </div>
+            <a href="#" class="section-link">View full curriculum &raquo;</a>
+          </div>
+
+          <div class="tracks-grid">
+            <!-- Track 1 -->
+            <article class="card">
+              <div class="card-ribbon">Starter Track</div>
+              <p class="card-tag">Track 01</p>
+              <h3 class="card-title">Thinking, Writing & Logic</h3>
+              <p class="card-body">
+                Train clear thinking and sharp writing. Learn to build arguments, spot manipulation,
+                and communicate like a leader instead of a slogan repeater.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> Reason & Rhetoric GPT</span>
+                <span>Level: Beginner–Advanced</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">View Syllabus</button>
+              </div>
+            </article>
+
+            <!-- Track 2 -->
+            <article class="card">
+              <p class="card-tag">Track 02</p>
+              <h3 class="card-title">History, Economics & Civic Truth</h3>
+              <p class="card-body">
+                Cut through revisionist scripts. Study Reconstruction, party history, economic reality,
+                and what actually changed Black opportunity — and what blocked it.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> History & Econ GPT</span>
+                <span>Core: Reconstruction & Beyond</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">Featured Book List</button>
+              </div>
+            </article>
+
+            <!-- Track 3 -->
+            <article class="card">
+              <p class="card-tag">Track 03</p>
+              <h3 class="card-title">Science & Analytical Reasoning</h3>
+              <p class="card-body">
+                Learn how scientific thinking really works, how data can be twisted, and how to reason
+                from evidence instead of emotion or pressure.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> Science & Reason GPT</span>
+                <span>Focus: Evidence & Models</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">Sample Lessons</button>
+              </div>
+            </article>
+
+            <!-- Track 4 -->
+            <article class="card">
+              <p class="card-tag">Track 04</p>
+              <h3 class="card-title">Digital Skills, Coding & Online Income</h3>
+              <p class="card-body">
+                Go beyond scrolling. Learn basic coding, AI tools, and digital income skills so you can
+                build, not just consume, the online world.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> Digital Builder GPT</span>
+                <span>Path: Skills → Projects</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">Project Roadmaps</button>
+              </div>
+            </article>
+
+            <!-- Track 5 -->
+            <article class="card">
+              <p class="card-tag">Track 05</p>
+              <h3 class="card-title">Trades & Technical Theory</h3>
+              <p class="card-body">
+                Respect the trades. Understand how systems work — from HVAC and auto to electrical and
+                beyond — and how technical careers create real freedom.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> Trades & Tech GPT</span>
+                <span>Bridge: Theory → Work</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">Career Maps</button>
+              </div>
+            </article>
+
+            <!-- Track 6 -->
+            <article class="card">
+              <div class="card-ribbon alt">Readiness</div>
+              <p class="card-tag">Track 06</p>
+              <h3 class="card-title">Safety, Test Prep & Professional Readiness</h3>
+              <p class="card-body">
+                Prepare for exams, certifications, interviews, and real-world situations — with an
+                emphasis on self-discipline, safety, and responsibility.
+              </p>
+              <div class="card-meta">
+                <span><span class="highlight">Tutor:</span> Readiness GPT</span>
+                <span>Focus: Exams & Habits</span>
+              </div>
+              <div class="card-actions">
+                <button class="btn-chip primary">Open GPT Tutor</button>
+                <button class="btn-chip">Checklist Library</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI SYSTEM FACTORY INSIDE ACADEMY -->
+      <section id="system-factory" class="section">
+        <div class="container two-col">
+          <div>
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">AI System Factory: Your Project Lab Inside the Academy</h2>
+                <p class="section-subtitle">
+                  Instead of only consuming lessons, you’ll have access to AI System Factory as an internal
+                  “build lab” — to design funnels, campaigns, outreach plans, and small businesses that fit
+                  your values.
+                </p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.6rem;">
+              Use AI System Factory to:
+            </p>
+            <ul class="pill-list">
+              <li>Design an issue-based campaign funnel</li>
+              <li>Turn a book into a training series</li>
+              <li>Build offers for local businesses</li>
+              <li>Create outreach plans for churches & groups</li>
+              <li>Map daily action steps, not just ideas</li>
+            </ul>
+          </div>
+          <aside class="card">
+            <p class="card-tag">Included Option</p>
+            <h3 class="card-title">Creator Access from Inside the School</h3>
+            <p class="card-body">
+              Students and members can optionally unlock AI System Factory as a “creator license” inside
+              the Academy — no hype, no get-rich-quick tricks. Just a structured engine for building real
+              systems.
+            </p>
+            <div class="card-meta">
+              <span><span class="highlight">Mode:</span> Internal School Upgrade</span>
+              <span>License: Creator Use</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn-chip primary">See What You Can Build</button>
+              <button class="btn-chip">View AI System Factory Details</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- BOOKS & LIBRARY (NO BOOK-A-WEEK AUTORESPONDER) -->
+      <section id="books" class="section">
+        <div class="container two-col">
+          <div>
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Books & Research Library</h2>
+                <p class="section-subtitle">
+                  The Academy is backed by books — not slogans. Members get guided access to titles like
+                  <em>How Democrats Blocked Every Anti-Lynching Bill</em> and
+                  <em>Why So Many Longtime Democrats Switched to the Republican Party</em>.
+                </p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;color:var(--muted);">
+              You can:
+            </p>
+            <ul class="pill-list">
+              <li>Read the full books inside the Academy</li>
+              <li>Use book-powered GPT tutors in each track</li>
+              <li>Follow issue-specific reading paths</li>
+              <li>Access citations and source checks</li>
+            </ul>
+          </div>
+
+          <aside class="card">
+            <p class="card-tag">Book-Powered GPTs</p>
+            <h3 class="card-title">Learn Directly From the Texts</h3>
+            <p class="card-body">
+              Selected books are loaded into private GPTs so you can ask questions, test your understanding,
+              and see how the arguments are built — step by step.
+            </p>
+            <div class="card-meta">
+              <span><span class="highlight">Access:</span> Members Only</span>
+              <span>Mode: Study • Debate • Drill</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn-chip primary">Browse the Book Library</button>
+              <button class="btn-chip">Try a Book Tutor GPT</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CANDIDATE / POLICY GPT -->
+      <section id="candidates" class="section">
+        <div class="container two-col">
+          <div>
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">For Candidates, Campaign Teams & Serious Voters</h2>
+                <p class="section-subtitle">
+                  A dedicated GPT “Policy & Strategy Lab” suggests policies, structures, and messaging
+                  that help Black communities instead of trapping them in permanent dependency.
+                </p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;color:var(--muted);">
+              Use it to explore:
+            </p>
+            <ul class="pill-list">
+              <li>Education & school choice structures</li>
+              <li>Crime, safety & prosecution policies</li>
+              <li>Economic opportunity & entrepreneurship</li>
+              <li>Family, culture & community stability</li>
+              <li>Messaging that respects intelligence</li>
+            </ul>
+          </div>
+          <aside class="card">
+            <div class="card-ribbon alt">Not for Sale</div>
+            <p class="card-tag">Policy & Structure Lab</p>
+            <h3 class="card-title">Candidate & Voter Strategy GPT</h3>
+            <p class="card-body">
+              This GPT isn’t a product on the shelf. It’s a tool inside the Academy that helps current
+              and future candidates think through policy structures and consequences before they speak.
+            </p>
+            <div class="card-meta">
+              <span><span class="highlight">Access:</span> Academy Members</span>
+              <span>Mode: Guided Sessions</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn-chip primary">Request Access</button>
+              <button class="btn-chip">See Example Policy Paths</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Black Republican Comeback Academy. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
